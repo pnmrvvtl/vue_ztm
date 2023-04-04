@@ -1,47 +1,32 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h3>Hello from App</h3>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <!--  <button type="button" @click="updateAge">Update age</button>-->
 
-  <main>
-    <TheWelcome />
-  </main>
+  <greeting :age="age"></greeting>
+  <user :age="age" @age-update="updateAge"></user>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import Greeting from "@/components/Greeting.vue";
+import User from "@/components/User.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+export default {
+  data() {
+    return {
+      age: 20
+    }
+  },
+  methods: {
+    updateAge(num) {
+      this.age += num;
+    }
+  },
+  name: "App",
+  components: {
+    Greeting,
+    User
   }
 }
-</style>
+</script>
+

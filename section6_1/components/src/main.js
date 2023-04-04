@@ -1,6 +1,9 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
+// import Greeting from "@/components/Greeting.vue";
 
-import './assets/main.css'
+let vm = createApp(App);
 
-createApp(App).mount('#app')
+// vm.component("Greeting", Greeting);
+
+vm.mount('#app')
