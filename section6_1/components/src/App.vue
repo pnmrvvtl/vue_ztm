@@ -4,7 +4,7 @@
   <!--  <button type="button" @click="updateAge">Update age</button>-->
 
   <greeting :age="age"></greeting>
-  <user :age="age" @age-update="updateAge"></user>
+  <user :age="age" @age-update="updateAge" :ageChangeFn="updateAgeCallback"></user>
 </template>
 
 <script>
@@ -20,7 +20,10 @@ export default {
   methods: {
     updateAge(num) {
       this.age += num;
-    }
+    },
+    updateAgeCallback(num) {
+      this.age += num;
+    },
   },
   name: "App",
   components: {
